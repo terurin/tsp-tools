@@ -64,12 +64,13 @@ fn main() {
     //check
     if let Some(c) = matches.subcommand_matches("check") {
         //入力受付
-        let path_name = c.value_of("path");
         let location_name = c.value_of("location").unwrap();
+
         //入力元
-        let mut turn: Box<dyn Read> = if let Some(name) = path_name {
-            Box::new(BufReader::new(File::open(name).unwrap()))
+        let mut turn: Box<dyn Read> = if let Some(path) = c.value_of("path") {
+            Box::new(BufReader::new(File::open(path).unwrap()))
         } else {
+            println!("a");
             Box::new(stdin())
         };
         let mut location = BufReader::new(File::open(location_name).unwrap());

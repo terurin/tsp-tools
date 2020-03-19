@@ -66,7 +66,7 @@ pub fn build_cli() -> App<'static, 'static> {
         .subcommand(
             SubCommand::with_name("check").args(&[
                 //順番
-                Arg::with_name("path file")
+                Arg::with_name("path")
                     .short("p")
                     .long("path")
                     .value_name("FILE")
