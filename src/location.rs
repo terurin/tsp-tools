@@ -55,7 +55,7 @@ impl Location {
     }
 
     pub fn write<W: Write>(&self, writer: &mut W) -> Result<(), Error> {
-        writeln!(writer, "{} {}", self.number, self.rank)?;
+        write!(writer, "{} {}", self.number, self.rank)?;
         let text = (0..self.number)
             .into_iter()
             .map(|index: usize| {
